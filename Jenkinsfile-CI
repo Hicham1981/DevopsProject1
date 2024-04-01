@@ -8,7 +8,14 @@ pipeline {
     agent any
     // DECLARE THE VARIABLES HERE:
     environment {
-        DOCKER_USERNAME = "nasirpatel"     // check the 'ID' in your Jenkins credentials
+        APP_NAME = "complete-prodcution-e2e-pipeline"
+        RELEASE = "1.1.0"
+        DOCKER_USERNAME = "19732019"
+        DOCKER_PASS = 'Thla872673'
+        IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
+        IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
+        
+
     }
 
     stages {
@@ -25,7 +32,7 @@ pipeline {
             steps {
                 dir ("DevopsProject1"){
                   script {
-                    git branch: 'main', url: 'https://github.com/pandacloud1/DevopsProject1.git' 
+                    git branch: 'main', url: 'https://github.com/Hicham1981/DevopsProject1.git' 
                   }
                 }
             }
