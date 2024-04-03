@@ -35,7 +35,7 @@ pipeline {
         stage("3. Deployment") {
           // K8s Deployment use Ansible
             // i. Ensure to establish passwordless connection between Master & Node  
-           // ii. Your deployment.yaml file must contain the Dockerhub image within the container block
+           // ii. Your deployment.yaml file must contain the Dockerhub image within the container
             steps {
               sshagent(['my_ec2_creds']) {          // store EC2 username & pem-key in Jenkins credentials
                 sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP}"   // enter your Node-Server private IP here
